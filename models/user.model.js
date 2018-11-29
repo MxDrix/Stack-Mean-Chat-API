@@ -14,6 +14,7 @@ Model definition
         first_name: String,
         login: String,
         last_name: String,
+        dateInscription: { type: Date, default: Date.now },
         email: String,
         password: String,
     })

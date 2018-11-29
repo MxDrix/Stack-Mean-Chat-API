@@ -37,7 +37,7 @@ const newMessage = body => {
 const deleteMessage = body => {
     return new Promise( (resolve, reject ) => {
 
-        ChatModel.findOne( { _id: body._id }, (error, message) => {
+        ChatModel.findOne( { _id: body._id, email_user: body.email }, (error, message) => {
             if(error) reject(error)
             else if( !message ) reject('Message not found')
             else{
@@ -56,24 +56,16 @@ const deleteMessage = body => {
     })
 };
 
-const chargeNews = body => {
+const chargeNews = () => {
     // Search for user
     return new Promise( (resolve, reject) => {
 
-        ChatModel.find({}, (error, user) => {
+        ChatModel.find({}, (error, msg) => {
             if(error){ // Mongo Error
                 return reject(error)
             }
-            else{ // l'utilisateur existe dans la base
-                // Save use
-                ChatModel.create(body, (error, newUser) => {
-                    if(error){ // Mongo error
-                        return reject(error)
-                    }
-                    else{ // User registrated
-                        return resolve(newUser);
-                    };
-                });
+            else{
+                return resolve(msg);
             };
         });
     });
