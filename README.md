@@ -32,7 +32,6 @@ User
             - email (String)
             - password (String)
             
-           
 Chat 
     newMessage : Création d'un nouveau message dans la base de donnée
         URL : http://localhost:8565/api/chat/newMessage
