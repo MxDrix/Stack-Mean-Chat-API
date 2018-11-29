@@ -25,8 +25,7 @@ User
             - last_name (String)
             - login (String)
             - email (String)
-            - password (String)
-            
+            - password (String)            
     Login : Connexion d'un utilisateur dans la base de donnée
         URL : http://localhost:8565/api/auth/login
         body params :
@@ -40,13 +39,11 @@ Chat
         body params :
             - nom (String) // Nom du Chat
             - email_user (String) 
-            - content (String) // Contenu du message
-    
+            - content (String) // Contenu du message 
     deleteMessage : Suppression d'un message utilisateur dans la base de donnée
         URL : http://localhost:8565/api/chat/deleteMessage
         body params :
             - _id (String) // _id du message
             - email_user (String)
-
     chargeNews : 
         URL : http://localhost:8565/api/chat/chargeNews
