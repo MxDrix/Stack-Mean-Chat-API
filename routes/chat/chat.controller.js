@@ -37,7 +37,7 @@ const newMessage = body => {
 const deleteMessage = body => {
     return new Promise( (resolve, reject ) => {
 
-        ChatModel.findOne( { _id: body._id, email_user: body.email }, (error, message) => {
+        ChatModel.findOne( { _id: body._id, email_user: body.email_user }, (error, message) => {
             if(error) reject(error)
             else if( !message ) reject('Message not found')
             else{

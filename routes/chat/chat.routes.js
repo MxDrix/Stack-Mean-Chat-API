@@ -36,13 +36,13 @@ class ChatRouterClass {
         chatRouter.post('/deleteMessage', (req, res) => {
             if( typeof req.body === 'undefined' || req.body === null ) { sendBodyError(res, 'No param provided') }
             // Use controller function
-            const { miss, extra, ok } = checkFields(['_id'], req.body); 
+            const { miss, extra, ok } = checkFields(['_id', 'email_user'], req.body); 
 
             if( !ok ){ sendFieldsError( res, 'Bad fields provided', miss, extra ) }
             // Use controller function
             deleteMessage(req.body)
             .then( apiResponse => sendApiSuccessResponse(res, 'Message delete ',apiResponse) )
-            .catch( apiResponse => sendApiErrorResponse(res, 'Error message delete ',apiResponse) )
+            .catch( apiResponse => sendApiErrorResponse(res, 'Error message not delete ',apiResponse) )
         });
 
         // Charger nouveau message
